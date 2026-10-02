@@ -1,0 +1,24 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36422.26
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeepPrisonersFed", "KeepPrisonersFed\KeepPrisonersFed.vcxproj", "{7F2C4D18-9A63-4E51-B0C7-3D85EA2F1B64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F2C4D18-9A63-4E51-B0C7-3D85EA2F1B64}.Debug|x64.ActiveCfg = Debug|x64
+		{7F2C4D18-9A63-4E51-B0C7-3D85EA2F1B64}.Debug|x64.Build.0 = Debug|x64
+		{7F2C4D18-9A63-4E51-B0C7-3D85EA2F1B64}.Release|x64.ActiveCfg = Release|x64
+		{7F2C4D18-9A63-4E51-B0C7-3D85EA2F1B64}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E8D1A37-62CB-4F90-9D54-A1B70C3E25F8}
+	EndGlobalSection
+EndGlobal
