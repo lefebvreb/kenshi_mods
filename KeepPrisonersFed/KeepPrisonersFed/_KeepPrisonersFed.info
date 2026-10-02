@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ModData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>3811869430</id>
+  <mod>KeepPrisonersFed</mod>
+  <title>Keep Prisoners Fed</title>
+  <tags>
+    <string>Gameplay</string>
+  </tags>
+  <visibility>2</visibility>
+  <lastUpdate>2026-10-02T14:49:27.1545647+02:00</lastUpdate>
+</ModData>
