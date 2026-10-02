@@ -1,5 +1,1 @@
-*.obj
-*.dll
-*.lib
-*.exp
-*.pdb
+/build
