@@ -12,7 +12,7 @@ Mods using [RE_KENSHI](https://github.com/BFrizzleFoShizzle/RE_Kenshi) are licen
 
 Here's a list and short description of the mods contained in this repo.
 
-### Keep Prisoners Fed (requires RE_KENSHI)
+### Keep Prisoners Fed (requires RE_Kenshi)
 
 Maintain non-player prisoners in player-owned cages at an uncomfortable 100 hunger, so you can stop worrying about them starving to death.
 
