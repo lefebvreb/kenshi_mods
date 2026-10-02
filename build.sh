@@ -8,7 +8,9 @@
 #   deps/boost_1_60_0              - Boost 1.60 headers + vc100 libs
 #   kenshilib-<ver>/KenshiLib.lib  - must match the KenshiLib headers in ../KenshiLib
 #   wine/                          - dedicated Wine prefix
-# The built DLL is copied into <Mod>/<Mod>/, next to RE_Kenshi.json.
+# The built DLL is copied into <Mod>/<Mod>/, next to RE_Kenshi.json, and that folder
+# is then rsynced into Kenshi's mods folder (override with KENSHI_MODS_DIR=/path,
+# or set it empty to skip). *.log files in the game copy are left alone.
 set -euo pipefail
 
 here="$(cd "$(dirname "$0")" && pwd)"
@@ -17,6 +19,7 @@ toolchain="$(cd "$toolchain" && pwd)"
 kenshilib_dir="${KENSHILIB_DIR:-$here/../KenshiLib}"
 kenshilib_dir="$(cd "$kenshilib_dir" && pwd)"
 kenshilib_lib="${KENSHILIB_LIB:-$toolchain/kenshilib-0.5.1}"
+kenshi_mods_dir="${KENSHI_MODS_DIR-$here/../../common/Kenshi/mods}"
 
 export WINEPREFIX="$toolchain/wine"
 export WINEDEBUG=-all
@@ -64,7 +67,23 @@ build_mod() {
 	if [[ -d "$src_dir/$mod" ]]; then
 		cp "$out_dir/$mod.dll" "$src_dir/$mod/"
 		echo "    -> $mod/$mod/$mod.dll"
+		install_mod "$mod"
 	fi
+}
+
+install_mod() {
+	local mod="$1"
+	[[ -n "$kenshi_mods_dir" ]] || return 0
+	if [[ ! -d "$kenshi_mods_dir" ]]; then
+		echo "    (skipping sync: $kenshi_mods_dir not found)"
+		return 0
+	fi
+	if [[ -L "$kenshi_mods_dir/$mod" ]]; then
+		echo "    (skipping sync: $kenshi_mods_dir/$mod is a symlink)" >&2
+		return 0
+	fi
+	rsync -a --delete --exclude '*.log' "$here/$mod/$mod/" "$kenshi_mods_dir/$mod/"
+	echo "    -> $(realpath "$kenshi_mods_dir/$mod")"
 }
 
 mods=("$@")

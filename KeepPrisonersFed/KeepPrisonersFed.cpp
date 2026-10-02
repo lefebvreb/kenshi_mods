@@ -7,7 +7,7 @@
 #include <core/Functions.h>
 #include <Debug.h>
 
-static const float TARGET_HUNGER = 100.0f;
+static const float TARGET_HUNGER = 1.0f;
 
 static bool isPlayerCagedForeigner(Character* character)
 {
@@ -40,7 +40,7 @@ void MedicalSystem__periodicUpdate_hook(MedicalSystem* thisptr)
 {
 	MedicalSystem__periodicUpdate_orig(thisptr);
 
-	if (isPlayerCagedForeigner(thisptr->me))
+	if (thisptr->hunger < TARGET_HUNGER && isPlayerCagedForeigner(thisptr->me))
 		thisptr->hunger = TARGET_HUNGER;
 }
 
